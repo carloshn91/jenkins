@@ -1,9 +1,14 @@
 pipeline {
-    agent any
+    agent docker { image 'node:14' }
     stages {
-        stage('build') {
+        stage('Install') {
             steps {
-                echo "Hello World!"
+                npx create-docusaurus@latest website classic
+            }
+        }
+        stage('Build') {
+            steps {
+                npm run build
             }
         }
     }
