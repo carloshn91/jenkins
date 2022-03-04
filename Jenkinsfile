@@ -1,18 +1,14 @@
 pipeline {
-    agent { 
-        docker { 
-            image 'node'
-        }
-    }
+    agent any
     stages {
         stage('Install') {
             steps {
-                npx 'create-docusaurus@latest website classic'
+                sh 'npx create-docusaurus@latest website classic'
             }
         }
         stage('Build') {
             steps {
-                npm 'run build'
+                sh 'npm run build'
             }
         }
     }
