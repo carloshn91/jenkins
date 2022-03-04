@@ -1,9 +1,11 @@
 pipeline {
     agent any
+
+    tools {nodejs "node"}
+
     stages {
         stage('Install') {
             steps {
-                nodejs(nodeJSInstallationName: 'Node 14.x', configId: '<config-file-provider-id>') {
                 sh 'npm install -g npx && \
                     npx create-docusaurus@latest website classic'
                }
