@@ -26,9 +26,3 @@ pipeline {
         }
    }
 }
-
-def notifyBuild(String buildStatus = 'STARTED') {
-  buildStatus = buildStatus ?: 'SUCCESSFUL'
-  def colorName = 'RED'
-  def colorCode = '#FF0000'
-}
