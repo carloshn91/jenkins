@@ -1,15 +1,9 @@
 pipeline {
-    agent none
+    agent { docker { image 'node:16.13.1-alpine' } }
     stages {
-        stage('Select micro services') {
-            input {
-                message "Select all micro services to deploy"
-                ok "All selected!"
-            }
-        }
-        stage('Select single service') {
-            input {
-                message "Select single micro services to deploy?"
+        stage('build') {
+            steps {
+                sh 'node --version'
             }
         }
     }
