@@ -24,5 +24,17 @@ pipeline {
                 sh 'cd website/ && npm run build'
             }
         }
-    }
+ 
+   } catch (e) {
+       currentBuild.result = "FAILED"
+       throw e
+   } finally {
+       notifyBuild(currentBuild.result)
+   }
+}
+
+def notifyBuild(String buildStatus = 'STARTED') {
+  buildStatus = buildStatus ?: 'SUCCESSFUL'
+  def colorName = 'RED'
+  def colorCode = '#FF0000'
 }
