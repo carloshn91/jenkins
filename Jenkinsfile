@@ -7,12 +7,12 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npx create-docusaurus@latest website classic'
+                npx 'create-docusaurus@latest website classic'
             }
         }
         stage('Build') {
             steps {
-                sh 'npm run build'
+                npm 'run build'
             }
         }
     }
