@@ -4,6 +4,11 @@ pipeline {
     tools {nodejs "node"}
 
     stages {
+       stage('Removing files') {
+           steps {
+                sh 'rm -rf /var/jenkins_home/workspace/Jenkins/website'
+               }
+            }
         stage('Creating Files Website') {
             steps {
                 sh 'npx create-docusaurus@latest website classic'
@@ -16,7 +21,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd website / && npm run build'
+                sh 'cd website/ && npm run build'
             }
         }
     }
