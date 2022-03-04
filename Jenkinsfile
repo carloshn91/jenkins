@@ -10,7 +10,6 @@ pipeline {
                     npx create-docusaurus@latest website classic'
                }
             }
-        }
         stage('Build') {
             steps {
                 sh 'npm run build'
