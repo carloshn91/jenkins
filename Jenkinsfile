@@ -24,7 +24,9 @@ pipeline {
                 sh 'cd website/ && npm run build'
             }
         }
-   } catch (e) {
+   } 
+   
+   catch (e) {
        currentBuild.result = "FAILED"
        throw e
    } finally {
