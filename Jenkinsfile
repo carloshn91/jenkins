@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npx create-docusaurus@latest website classic'
+                sh 'npm install -g npx && \
+                    npx create-docusaurus@latest website classic'
             }
         }
         stage('Build') {
