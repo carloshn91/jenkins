@@ -6,8 +6,7 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npm install -g npx && \
-                    npx create-docusaurus@latest website classic'
+                sh 'npx create-docusaurus@latest website classic'
                }
             }
         stage('Build') {
